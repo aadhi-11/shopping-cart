@@ -1,0 +1,36 @@
+<section>
+    <div class="container">
+        <h1 class="text-center">All Users</h1>
+        <div class="container p-5">
+            <table class="table mt-5 p-5" id="productsTable">
+                <thead>
+                    <tr>
+                        <th scope="col">User Id</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone number</th>
+                        <th scope="col">orders</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each users}}
+                    <tr>
+                        <td>{{this._id}}</td>
+                        <td>{{this.Name}}</td>
+                        <td>{{this.Gender}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.phone}}</td>
+                        <td><a href="/admin/orders/?id={{this._id}}" class="btn btn-info">orders</a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<script>
+    $(function(){
+        $('#productsTable').DataTable();
+    });
+</script>

@@ -1,0 +1,45 @@
+<section>
+    <div class="container p-5">
+        <h1 class="text-center">All orders</h1>
+        <table class="table pt-4" id="productsTable">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">order id</th>
+                    <th scope="col">User id</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">product</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each orders}}
+                <tr>
+                    
+                    
+                    <td>{{this._id}}</td>
+                    <td>
+                        {{this.userId}}
+                        <a href="/admin/user/?id={{this.userId}}" class="btn btn-info">User details</a>    
+                    </td>
+                    <td>{{this.date}}</td>
+                    <td>Rs.{{this.totalAmout}}/-</td>
+                    <td>{{this.paymentMethod}}</td>
+                    <td>{{this.status}}</td>
+                    <td><a href="/admin/order-product/{{this._id}}" class="btn btn-primary">view details</a></td>
+               </tr>
+               {{/each}}
+            </tbody>
+        </table>
+        <div class="container text-center">
+             <a href="/admin" class="btn btn-primary text-center">Home</a>
+        </div>
+        </div>
+</section>
+<script>
+    $(function(){
+        $('#productsTable').DataTable();
+    });
+</script>

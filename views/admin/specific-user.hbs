@@ -1,0 +1,71 @@
+<section>
+  {{#if user}}
+    <div class="container">
+        <div class="container p-5">
+<section class="vh-100" style="background-color: #f4f5f7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-6 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrQ6RdNYDIeXg3iTWoclyhB9BJ55rPr5emnw&usqp=CAU"
+                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+              <h5>{{user.Name}}</h5>
+              <p></p>
+              <i class="far fa-edit mb-5"></i>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Information</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted">{{user.email}}</p>
+                  </div>
+                  
+                  <div class="col-6 mb-3">
+                    <h6>Gender</h6>
+                    
+                    <p class="text-muted">{{user.Gender}}</p>
+                    
+                  </div>
+                  <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Phone:</h6>
+                    
+                    <p class="text-muted">{{user.phone}}</p>
+                    
+                  </div>
+                  
+                  
+                  </div>
+                </div>
+                <h6>orders</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                   <a href="/admin/orders/?id={{user._id}}" class="btn btn-info">orders</a>
+                  </div>
+                </div>
+              
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        </div>
+    </div>
+    {{else}}
+    <div class="container">
+                  <h1 class="text-center">user not found</h1>
+                  <p class="text-center"><i>-may be deleted id</i></p>
+    </div>
+    {{/if}}
+</section>

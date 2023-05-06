@@ -1,0 +1,61 @@
+<section>
+    <form action="" method="post" class="form-control p-5" id="checkout-form">
+        <div class="row">
+            <div class="col-md-5 ps-2">
+                <div class="container p-5 border border-primary rounded-4">
+                    <h1>Delivery Details</h1>
+                    <div class="mb-3">
+                        <label for="Address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="Address" name="Address" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pincode" class="form-label">pincode</label>
+                        <input type="number" class="form-control" id="pincode" name="pincode" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone number</label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div> 
+                    <input type="text" name="user" id="userId" value="{{user._id}}" hidden> 
+                </div>
+            </div>
+           <div class="col-md-2">
+
+           </div>
+            <div class="col-md-5 pt-5">
+                <div class="container p-5 border border-primary rounded-4">
+                    <h1>Payment method!</h1>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment" id="COD" value="COD" checked>
+                        <label class="form-check-label" for="COD">
+                            COD
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment" id="Online" value="Online" disabled>
+                        <label class="form-check-label" for="Online">
+                            Online
+                        </label>
+                    </div>
+                    <hr>
+                  
+                    <button class="btn btn-primary float-end" type="submit">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        $("#checkout-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:'/place-order',
+                method:'post',
+                data:$('#checkout-form').serialize(),
+                success:(response)={
+                    alert(response)
+                    
+                }
+            })
+        })
+    </script>
+</section>
